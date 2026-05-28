@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form action="/weather" method="post">
+        <input type="text" name="city" placeholder="enter the city" required>
+        <button>search</button>
+        </form>
+        <div>
+            <% if(error){%>
+            <div class="error">
+                <p><%= error%></p>
+            </div>
+            <% } %>
+            <% if(weather){%>
+                <div class="weather-card">
+                    <h2><%= weather.city%> , <%= weather.country%></h2>
+                    <img src="https://openweathermap.org/img/wn/<%=weather.icon%>@2x.png" alt="weather icon">
+                    <h3><%= weather.temperature%> &supdot;C</h3>
+                    <p><strong>Condition :</strong> <%= weather.condition%></p>
+                    <p><strong>description :</strong> <%= weather.description%></p>
+                    <p><strong>Humidity :</strong> <%= weather.humidity%></p>
+                    <p><strong>Wind Speed :</strong><%= weather.windspeed%></p>
+                </div>
+
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>
